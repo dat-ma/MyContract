@@ -11,11 +11,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "ERC721EnumerableForbiddenBatchMint",
-				"type": "error"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -124,32 +119,6 @@
 						"internalType": "address",
 						"name": "owner",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "ERC721OutOfBoundsIndex",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "EnforcedPause",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "ExpectedPause",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
 					}
 				],
 				"name": "OwnableInvalidOwner",
@@ -239,19 +208,6 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "Paused",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "from",
@@ -274,17 +230,28 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
 						"internalType": "address",
-						"name": "account",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "Unpaused",
-				"type": "event"
+				"name": "_bidder",
+				"outputs": [
+					{
+						"internalType": "uint48",
+						"name": "bidTime",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastBid",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -294,32 +261,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "_now",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "_publicMintOpent",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -344,49 +285,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "auction",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "_tokenId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_highestBidding",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_fromPrice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_toPrice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint48",
-						"name": "_startTime",
-						"type": "uint48"
-					},
-					{
-						"internalType": "uint48",
-						"name": "_effectTime",
-						"type": "uint48"
-					},
-					{
-						"internalType": "address",
-						"name": "_winner",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -406,31 +304,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "erc20Address",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "bid",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "clearAuction",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "contractURI",
 				"outputs": [
@@ -441,44 +314,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "highestBidding",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "fromPrice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "toPrice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint48",
-						"name": "startTime",
-						"type": "uint48"
-					},
-					{
-						"internalType": "uint48",
-						"name": "effectTime",
-						"type": "uint48"
-					}
-				],
-				"name": "createAuction",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -571,26 +406,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "pause",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "paused",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "publicMint",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -675,45 +490,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "contractMetadata",
-						"type": "string"
-					}
-				],
-				"name": "setContractURI",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bool",
-						"name": "publicMintOpent",
-						"type": "bool"
-					}
-				],
-				"name": "setPublicMintOpent",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "maxSupply",
-						"type": "uint256"
-					}
-				],
-				"name": "setSupply",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "bytes4",
 						"name": "interfaceId",
 						"type": "bytes4"
@@ -747,49 +523,6 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "tokenByIndex",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "tokenOfOwnerByIndex",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
 						"name": "_tokenId",
 						"type": "uint256"
 					}
@@ -800,19 +533,6 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "totalSupply",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -853,79 +573,10 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "unpause",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "winnerAddress",
-						"type": "address"
-					}
-				],
-				"name": "winClaim",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "erc20Address",
-						"type": "address"
-					}
-				],
-				"name": "withDrawWhenLose",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_addr",
-						"type": "address"
-					}
-				],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "erc20Address",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "addr",
-						"type": "address"
-					}
-				],
-				"name": "withdrawERC20",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
 			"errors": {
-				"ERC721EnumerableForbiddenBatchMint()": [
-					{
-						"details": "Batch mint is not allowed."
-					}
-				],
 				"ERC721IncorrectOwner(address,uint256,address)": [
 					{
 						"details": "Indicates an error related to the ownership over a particular token. Used in transfers.",
@@ -993,21 +644,6 @@
 						}
 					}
 				],
-				"ERC721OutOfBoundsIndex(address,uint256)": [
-					{
-						"details": "An `owner`'s token query was out of bounds for `index`. NOTE: The owner being `address(0)` indicates a global out of bounds index."
-					}
-				],
-				"EnforcedPause()": [
-					{
-						"details": "The operation failed because the contract is paused."
-					}
-				],
-				"ExpectedPause()": [
-					{
-						"details": "The operation failed because the contract is not paused."
-					}
-				],
 				"OwnableInvalidOwner(address)": [
 					{
 						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
@@ -1026,14 +662,8 @@
 				"ApprovalForAll(address,address,bool)": {
 					"details": "Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets."
 				},
-				"Paused(address)": {
-					"details": "Emitted when the pause is triggered by `account`."
-				},
 				"Transfer(address,address,uint256)": {
 					"details": "Emitted when `tokenId` token is transferred from `from` to `to`."
-				},
-				"Unpaused(address)": {
-					"details": "Emitted when the pause is lifted by `account`."
 				}
 			},
 			"kind": "dev",
@@ -1059,12 +689,6 @@
 				"ownerOf(uint256)": {
 					"details": "See {IERC721-ownerOf}."
 				},
-				"paused()": {
-					"details": "Returns true if the contract is paused, and false otherwise."
-				},
-				"publicMint()": {
-					"details": "Returns the metadata URI for a given token ID."
-				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
 				},
@@ -1077,20 +701,11 @@
 				"setApprovalForAll(address,bool)": {
 					"details": "See {IERC721-setApprovalForAll}."
 				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				},
 				"symbol()": {
 					"details": "See {IERC721Metadata-symbol}."
-				},
-				"tokenByIndex(uint256)": {
-					"details": "See {IERC721Enumerable-tokenByIndex}."
-				},
-				"tokenOfOwnerByIndex(address,uint256)": {
-					"details": "See {IERC721Enumerable-tokenOfOwnerByIndex}."
-				},
-				"tokenURI(uint256)": {
-					"details": "Returns the metadata URI for a given token ID."
-				},
-				"totalSupply()": {
-					"details": "See {IERC721Enumerable-totalSupply}."
 				},
 				"transferFrom(address,address,uint256)": {
 					"details": "See {IERC721-transferFrom}."
@@ -1171,30 +786,6 @@
 				"dweb:/ipfs/QmWBAn6y2D1xgftci97Z3qR9tQnkvwQpYwFwkTvDMvqU4i"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
-			"keccak256": "0x36797469c391ea5ba27408e6ca8adf0824ba6f3adea9c139be18bd6f63232c16",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://0dcf8bb9f7c29d678de34a051b4a71cf27ae56464678696c6913cbbfc75d548a",
-				"dweb:/ipfs/QmSfdgU9V2dXh9oajUxgF9hU1aPnpd1PEMtcchoANsCNmW"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol": {
-			"keccak256": "0xab7469fb4d5dbca13494abb44b720b63b62a48d594083312de4865ba50cd80b3",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://334002204a6c9af1bb233295dfae3052ea887c2f1913130fb931fe1b11692319",
-				"dweb:/ipfs/Qme5siHWg53YLWpXBb1rBTSRaTVbtWLnYUBa4Pjq2CYFpt"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
-			"keccak256": "0x3d6954a93ac198a2ffa384fa58ccf18e7e235263e051a394328002eff4e073de",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1f58c799bd939d3951c94893e83ef86acd56989d1d7db7f9d180c515e29e28ff",
-				"dweb:/ipfs/QmTgAxHAAys4kq9ZfU9YB24MWYoHLGAKSxnYUigPFrNW7g"
-			]
-		},
 		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
 			"keccak256": "0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1",
 			"license": "MIT",
@@ -1209,14 +800,6 @@
 			"urls": [
 				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
-			]
-		},
-		"@openzeppelin/contracts/utils/Pausable.sol": {
-			"keccak256": "0xb2e5f50762c27fb4b123e3619c3c02bdcba5e515309382e5bfb6f7d6486510bd",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1a4b83328c98d518a2699c2cbe9e9b055e78aa57fa8639f1b88deb8b3750b5dc",
-				"dweb:/ipfs/QmXdcYj5v7zQxXFPULShHkR5p4Wa2zYuupbHnFdV3cHYtc"
 			]
 		},
 		"@openzeppelin/contracts/utils/Strings.sol": {
@@ -1260,11 +843,11 @@
 			]
 		},
 		"contracts/TestSContract.sol": {
-			"keccak256": "0x7f3cb07cf601cd309a9529a37bdb945810db282ff23a1c3575e7818f040e0ee9",
+			"keccak256": "0x12228be8f051af23b4ab14743cf3db12fbe503cbcadd197377cea80189aaef4d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://06721d7ca7ac438b1b1b9a9811b7dc5873e6604b0dd6cdc9668c48bd5ab6a52b",
-				"dweb:/ipfs/QmTy93QHEHowYy4rwwjqu9sQQgbNpUuuW1Dbt5n2oPxw2b"
+				"bzz-raw://3033f3c961bd6195fd96fe7dea40508dec8a95225efa60fb7a442ab61944688a",
+				"dweb:/ipfs/QmQLiBaDVekVgGXmbTefre4bgJBNTfE49ZfU4U3KNJ7Sd7"
 			]
 		}
 	},
