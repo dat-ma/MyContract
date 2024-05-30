@@ -1,0 +1,2 @@
+Contract erc20 Deployed to Address: 0x665cd194CE3fEb46ef0d081E94147Ec9b836C095
+Contract erc721 Deployed to Address: 0xaEDc5E19a877275aBE12573609b55E0EfcA04Cfc

@@ -1,0 +1,42 @@
+{{{
+  exports({
+    to: app.makePath("openapi", "src", entity.path, controllerEntity.name, modelFileName)
+  })
+}}}
+import { ApiResponse } from '#openapi/types'
+import { Body, Controller, Example, Post, Route, Tags } from 'tsoa'
+
+/**
+ * @example {
+ *   "someKey": "value",
+ * }
+ */
+interface {{ modelName }}RequestData {
+  someKey: string
+}
+
+interface {{ modelName }}ResponseData {
+  someKey: string
+}
+
+interface {{ modelName }}ResponseMeta {}
+
+interface {{ modelName }}Response extends ApiResponse<{{ modelName }}ResponseData, {{ modelName }}ResponseMeta> {}
+
+@Route('{{ controllerEntity.name }}')
+@Tags('{{ controllerName }}')
+export class {{ modelName }}Controller extends Controller {
+  /**
+   * {{ modelName }} controller
+   */
+  @Example<{{ modelName }}Response>({
+    data: {
+      someKey: 'value',
+    },
+    meta: {},
+  })
+  @Post('/')
+  GreetStore(@Body() _body: {{ modelName }}RequestData): {{ modelName }}Response {
+    return {} as any
+  }
+}

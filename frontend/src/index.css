@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+    background-color: rgb(16, 23, 41);
+    height: 100vh;
+}
+
+.auction{
+    border-right:  1px solid #ffffff48;
+    border-left:  1px solid #ffffff48;
+}

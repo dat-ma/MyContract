@@ -1,0 +1,23 @@
+import redisConfig from '#config/redis'
+import env from '#start/env'
+import { defineConfig } from '@its/sdk/queue'
+
+const queueConfig = defineConfig({
+  connection: {
+    ...redisConfig.connections.main,
+    db: env.get('QUEUE_DB'),
+  },
+  queues: {
+    default: {},
+  },
+  jobs: {},
+  queue: {} as any,
+  worker: {} as any,
+})
+
+export default queueConfig
+
+declare module '@its/sdk/types/queue' {
+  type Queues = typeof queueConfig.queues
+  interface QueueList extends Queues {}
+}

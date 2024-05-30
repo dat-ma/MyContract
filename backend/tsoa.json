@@ -1,0 +1,50 @@
+{
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": [
+    "openapi/src/**/*.ts"
+  ],
+  "spec": {
+    "outputDirectory": "openapi/build",
+    "specVersion": 3,
+    "version": 1,
+    "yaml": true,
+    "xEnumVarnames": true,
+    "schemes": [
+      "https"
+    ],
+    "description": "# Introduction\nAPI Docs\n# Authentication\n<SecurityDefinitions />",
+    "spec": {
+      "x-tagGroups": [
+        {
+          "name": "Greet",
+          "tags": [
+            "Greet"
+          ]
+        }
+      ],
+      "servers": [
+        {
+          "url": "https://example.icetea-software.com",
+          "description": "Test API"
+        }
+      ]
+    },
+    "securityDefinitions": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "name": "Authorization"
+      }
+    }
+  },
+  "routes": {
+    "routesDir": "openapi/build"
+  },
+  "compilerOptions": {
+    "paths": {
+      "#openapi/*": [
+        "./openapi/src/*.ts"
+      ]
+    }
+  }
+}

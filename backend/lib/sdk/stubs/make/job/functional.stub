@@ -1,0 +1,17 @@
+{{#var testGroupName = generators.testGroupName(entity) }}
+{{#var testFileName = generators.testFileName(entity.name)}}
+{{{
+  exports({
+    to: app.makePath(directory, 'jobs', entity.path, testFileName)
+  })
+}}}
+import app from '@adonisjs/core/services/app'
+import { test } from '@japa/runner'
+
+test.group('{{ testGroupName }}', () => {
+  test('{{ testGroupName }} success', async ({ expect }) => {
+    const { default: Job } = await import('#jobs/{{ basename }}')
+    const job = await app.container.make(Job, [{}])
+    expect(() => job.handle({})).not.toThrowError()
+  })
+})

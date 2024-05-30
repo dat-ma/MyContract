@@ -1,0 +1,25 @@
+name: Release test environment
+
+on:
+  push:
+    tags:
+      - release.test.*
+    # branches:
+    #   - develop
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  release:
+    uses: IceteaSoftware/sdk/.github/workflows/capistrano.yml@runner
+    secrets: inherit
+    with:
+      name: FIXME
+      host: FIXME
+      stage: test
+      telegram-group: FIXME
+      telegram-topic: FIXME
+      success-columns: |-
+        |W| full |W| API Endpoint |W| FIXME
+        |W| full |W| API Docs     |W| FIXME

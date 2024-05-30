@@ -1,0 +1,35 @@
+.header {
+    border-bottom: 1px solid #ffffff48;
+    padding: 0 5%;
+}
+.nav-active{
+    background: linear-gradient(to right,#009DE7, #4CE7BD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+.btn-con-wall {
+    width: 200px;
+    height: 42px;
+    border-radius: 0px 14px 0px 14px;
+    padding: 12px 20px;
+    background-image: linear-gradient(to right, #79CBCA 10%, #029EE6  51%, #79CBCA  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+.nav-item{
+    transition: ease-out 0.1s;
+}
+.nav-item:hover{
+    background: linear-gradient(to right,#009DE7, #4CE7BD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.btn-con-wall:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+ 

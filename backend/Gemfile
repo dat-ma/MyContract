@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'activesupport'
+gem 'bcrypt_pbkdf'
+gem 'capistrano'
+gem 'ed25519'
+gem 'its_sdk', path: 'lib/rb'
+gem 'rubocop'

@@ -1,0 +1,31 @@
+{{#var payloadName = name + "JobPayload" }}
+{{{
+  exports({
+    to: app.makePath("app", "jobs", filename)
+  })
+}}}
+import type { JobHandlerContract, Job } from '@its/sdk/types/queue'
+
+export type {{ payloadName }} = {}
+
+export default class implements JobHandlerContract<{{ payloadName }}> {
+  constructor(public job: Job) {
+    this.job = job
+  }
+
+  /**
+   * Base Entry point
+   */
+  async handle(payload: {{ payloadName }}) {}
+
+  /**
+   * This is an optional method that gets called if it exists when the retries has exceeded and is marked failed.
+   */
+  async failed() {}
+}
+
+declare module '@its/sdk/types/queue' {
+  export interface JobList {
+    '#jobs/{{ basename }}': {{ payloadName }}
+  }
+}

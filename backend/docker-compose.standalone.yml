@@ -1,0 +1,79 @@
+x-templates:
+  api: &api
+    build:
+      context: .
+      args:
+        - 'STAGE=${STAGE:-test}'
+        - 'REPO_COMMIT_ID=${REPO_COMMIT_ID:-local}'
+        - 'NODE_CONFIG_ENV=${NODE_CONFIG_ENV:-development}'
+    restart: always
+    env_file: .env.production.local
+    depends_on:
+      - redis
+      - postgresql
+
+services:
+  api:
+    <<: *api
+    # command: sh -c "node bin/server.js >> log/api.log"
+    command: node bin/server.js
+    volumes:
+      - ./log/api.log:/app/build/log/api.log
+      - ./config/local.json:/app/build/config/local.json
+    expose:
+      - ${PORT:-3333}
+    ports:
+      - ${PUBLISH_APP_PORT:-3333}:${PORT:-3333}
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.services.api.loadbalancer.server.port=${PORT:-3333}'
+
+  api-docs:
+    build:
+      dockerfile: openapi/Dockerfile
+    expose:
+      - 8080
+    restart: always
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.services.api-docs.loadbalancer.server.port=8080'
+
+  api-queue:
+    <<: *api
+    command: "sh -c 'is-ci || node ace queue:listen >> log/queue-default.log'"
+    environment:
+      - CI=true
+    volumes:
+      - ./log/queue-default.log:/app/build/log/queue-default.log
+
+  api-queue-dashboard:
+    <<: *api
+    command: npm run queue:dashboard
+    expose:
+      - 9999
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.services.api-queue-dashboard.loadbalancer.server.port=9999'
+
+  postgresql:
+    image: postgres:16-alpine
+    restart: always
+    volumes:
+      - ${PG_DATA:-./tmp/postgresql-data}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${PG_PASSWORD:-Sup3rs3cr3T}
+    ports:
+      - ${PUBLISH_PG_PORT:-5432}:5432
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - ${REDIS_DATA:-./tmp/redis-data}:/data
+    restart: always
+    ports:
+      - '${PUBLISH_REDIS_PORT:-6379}:6379'
+
+networks:
+  default:
+    name: app
+    external: true

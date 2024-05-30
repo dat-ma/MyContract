@@ -1,0 +1,21 @@
+default:
+  application: adonis-ts
+  repo_url: 'git@github.com:IceteaSoftware/adonis-ts.git'
+  branch: HEAD
+  docker_network: adonis-ts
+  docker_main_service: api
+  dirs: []
+  files:
+    - log/api.log
+    - log/queue-default.log
+  submodules:
+    'lib/sdk': git@sdk.github.com:IceteaSoftware/sdk.git
+    'lib/rb': git@sdk.github.com:IceteaSoftware/sdk.git
+test:
+  branch: develop
+  user: deploy
+  server: '10.241.74.36'
+staging:
+  branch: staging
+production:
+  branch: main

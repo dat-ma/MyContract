@@ -1,0 +1,8 @@
+[submodule "lib/sdk"]
+	path = lib/sdk
+	url = https://github.com/IceteaSoftware/its-sdk.git
+  branch = adonis6
+[submodule "lib/rb"]
+	path = lib/rb
+	url = https://github.com/IceteaSoftware/its-sdk.git
+	branch = ruby
