@@ -1,2 +1,2 @@
 Contract erc20 Deployed to Address: 0x665cd194CE3fEb46ef0d081E94147Ec9b836C095
-Contract Fushion Deployed to Address: 0xaEDc5E19a877275aBE12573609b55E0EfcA04Cfc
+Contract Fushion Deployed to Address: 0xF768A934E199F05DC17e2ca7b26f71Ab1208A8f1

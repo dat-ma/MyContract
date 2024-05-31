@@ -56,6 +56,12 @@ export default defineConfig({
   |
   */
   preloads: [() => import('#start/routes'), () => import('#start/kernel')],
+  metaFiles: [
+    {
+      pattern: "config/*.json",
+      reloadServer: true
+    }
+  ],
 
   /*
   |--------------------------------------------------------------------------

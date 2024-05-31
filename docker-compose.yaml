@@ -1,0 +1,9 @@
+version: '3'
+services:
+  backend-1:
+    build:
+      context: ./backend
+
+  frontend-1:
+    build:
+      context: ./frontend

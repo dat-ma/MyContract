@@ -45,3 +45,5 @@ ENV NODE_CONFIG_ENV=${NODE_CONFIG_ENV}
 
 COPY --from=build /app/build /app/build
 COPY --from=build /app/node_modules /app/build/node_modules
+
+EXPOSE 3333

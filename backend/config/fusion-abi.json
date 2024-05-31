@@ -308,12 +308,12 @@
           },
           {
             "internalType": "uint256",
-            "name": "claimAmount",
+            "name": "claimTime",
             "type": "uint256"
           },
           {
             "internalType": "uint256",
-            "name": "claimTime",
+            "name": "claimAmount",
             "type": "uint256"
           },
           {
@@ -449,12 +449,12 @@
               },
               {
                 "internalType": "uint256",
-                "name": "claimAmount",
+                "name": "claimTime",
                 "type": "uint256"
               },
               {
                 "internalType": "uint256",
-                "name": "claimTime",
+                "name": "claimAmount",
                 "type": "uint256"
               },
               {
@@ -500,12 +500,12 @@
               },
               {
                 "internalType": "uint256",
-                "name": "claimAmount",
+                "name": "claimTime",
                 "type": "uint256"
               },
               {
                 "internalType": "uint256",
-                "name": "claimTime",
+                "name": "claimAmount",
                 "type": "uint256"
               },
               {
@@ -517,6 +517,19 @@
             "internalType": "struct FusionInterfaces.BidInfo",
             "name": "",
             "type": "tuple"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getCurrentTime",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
           }
         ],
         "stateMutability": "view",
@@ -545,12 +558,12 @@
               },
               {
                 "internalType": "uint256",
-                "name": "claimAmount",
+                "name": "claimTime",
                 "type": "uint256"
               },
               {
                 "internalType": "uint256",
-                "name": "claimTime",
+                "name": "claimAmount",
                 "type": "uint256"
               },
               {

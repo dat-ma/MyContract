@@ -8,13 +8,12 @@ import {
 import { contract } from '../../providers/utils'
 import './PlaceBid.css';
 
-
 export default function PlaceBid() {
   const { isConnected } = useAccount();
   const { 
     data: hash,
     error,
-    isPending, 
+    isPending,
     writeContract 
   } = useWriteContract();
 
@@ -22,12 +21,12 @@ export default function PlaceBid() {
     if (isConnected) {
       e.preventDefault() 
     const formData = new FormData(e.target as HTMLFormElement) 
-    const tokenId = formData.get('value') as string 
+    const amount = formData.get('value') as string 
     writeContract({
       address: '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2',
       abi: contract,
       functionName: 'placeBid',
-      args: [BigInt(tokenId)],
+      args: [BigInt(amount)],
     })
     } else {
       alert('bạn cần kết nối ví điện tử trước khi đặt cược !')
@@ -35,6 +34,7 @@ export default function PlaceBid() {
   } 
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =  useWaitForTransactionReceipt({ hash }) ;
+
   var modal: HTMLElement = document.getElementById("placeBid")!;
 
   window.onclick = function (event) {

@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
 import WalletInfo from '../WalletInfo/WalletInfo';
-import PlaceBid from '../PlaceBid/PlaceBid.tsx';
-
+// import PlaceBid from '../PlaceBid/PlaceBid.tsx';
+import { PlaceBid } from '../../providers/writeContract.tsx';
 
 export default function Header({navItem, logo}: {navItem:any, logo: any}) {
     const { open } = useWeb3Modal();

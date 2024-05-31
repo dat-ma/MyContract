@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Header navItem={navItem} logo="/image.png" />
       <Routes>
-        {navItem.map((item) => <Route path={item.url} element={item.element} /> )}
+        {navItem.map((item, index) => <Route key={`route-key-${index}`} path={item.url} element={item.element} /> )}
       </Routes>
     </BrowserRouter>
   )
