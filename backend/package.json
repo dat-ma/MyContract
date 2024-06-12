@@ -25,7 +25,7 @@
     "#models/*": "./app/models/*.js",
     "#mails/*": "./app/mails/*.js",
     "#serializers/*": "./app/serializers/*.js",
-    "#services/*": "./app/services/*.js",
+    "#services/*": "./app/services/*.js", 
     "#listeners/*": "./app/listeners/*.js",
     "#events/*": "./app/events/*.js",
     "#middleware/*": "./app/middleware/*.js",
