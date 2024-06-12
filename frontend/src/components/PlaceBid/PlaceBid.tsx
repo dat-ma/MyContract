@@ -21,13 +21,14 @@ export default function PlaceBid() {
     if (isConnected) {
       e.preventDefault() 
     const formData = new FormData(e.target as HTMLFormElement) 
-    const amount = formData.get('value') as string 
+    const amount = Number(formData.get('value')) * 10 ** 18;
     writeContract({
       address: '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2',
       abi: contract,
       functionName: 'placeBid',
-      args: [BigInt(amount)],
+      args: [amount],
     })
+    
     } else {
       alert('bạn cần kết nối ví điện tử trước khi đặt cược !')
     }
@@ -45,7 +46,7 @@ export default function PlaceBid() {
   return (
     <div id='placeBid' className='place-bid'>
       <form onSubmit={submit} className='bid-form'>
-      <input name="value" className='text-black' placeholder="0.05" required />
+      <input name="value" className='text-black' type='number' placeholder="0.05" required />
       <button 
         disabled={isPending} 
         type="submit"

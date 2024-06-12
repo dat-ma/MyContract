@@ -6,6 +6,6 @@ import { localhost } from 'wagmi/chains'
 export default defineConfig({
   plugins: [react()],
   server: {
-   port: 3000
+   port: 3001
   }
 })

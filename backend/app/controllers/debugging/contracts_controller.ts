@@ -15,7 +15,7 @@ export default class ContractsController {
             return address === 'INVALID';
         }
         const contractInfo = async () => {
-            const totalBid = await contractInstance.methods.totalBid().call();
+            const totalBid = await contractInstance.methods.totalUser().call();
             const maxBid = await contractInstance.methods.maxBid().call();
             const minBid = await contractInstance.methods.minBid().call();
             const startTime = await contractInstance.methods.startTime().call();

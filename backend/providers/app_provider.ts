@@ -20,6 +20,18 @@ export default class AppProvider {
         },
       },
     );
+    await queue.schedule(
+      '#jobs/sync_bid_info_job',
+      {
+        input1: '20cm',
+        input2: parseDuration('30 minutes'),
+      },
+      {
+        repeat: {
+          pattern: '* * * * *',
+        },
+      },
+    )
   }
 
   async start() {}

@@ -46,4 +46,5 @@ ENV NODE_CONFIG_ENV=${NODE_CONFIG_ENV}
 COPY --from=build /app/build /app/build
 COPY --from=build /app/node_modules /app/build/node_modules
 
+run node ace migration:run
 EXPOSE 3333
