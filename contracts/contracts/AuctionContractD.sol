@@ -35,7 +35,7 @@ contract FusionContract is
     uint256 public totalBid;
     uint256 public totalClaim;
     address public acceptedCurrency;
-    uint256 public minBid;
+    uint256 public minBid;                                         
     uint256 public maxBid;
     uint256 public tokenIds;
 

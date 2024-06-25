@@ -29,7 +29,7 @@ export default class implements JobHandlerContract<sync_bid_infoJobPayload> {
         bidInfoPromise.push(bidInfo);
         PlaceBid.create({
           walletAddress: bidInfo.user,
-          amount: bidInfo.amount,
+          amount: bidInfo.amount,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
           bidTime: parseInt(bidInfo.bidTime),
           bidNonce: nonce,
         })
